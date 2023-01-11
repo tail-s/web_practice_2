@@ -10,6 +10,12 @@ html(lang="en")
         header
             h1 ZoomClone
         main    
-            h2 Welcome to MyClone
-            button Call
+            form#nick
+                ul
+                input(type="text", placeholder="choose a nickname", requierd)
+                button Save
+            form#message
+                ul
+                input(type="text", placeholder="write a msg", requierd)
+                button Send
         script(src="public/js/app.js")
