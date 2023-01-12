@@ -22,13 +22,18 @@ io.on("connection", (socket) => {
         console.log(`Socket Event:${event}`);
     });
     socket.on("enter_room", (roomName, done) => {
-        console.log(socket.rooms);
         socket.join(roomName);
-        console.log(socket.rooms);
-        setTimeout(() => {
-            done("hello from the backend");
-        }, 15000);
+        done();
+        socket.to(roomName).emit("welcome");
     });
+    socket.on("disconnecting", () => {
+        socket.rooms.forEach(room => socket.to(room).emit("bye"));
+    });
+    socket.on("new_message", (msg, room, done) => {
+        socket.to(room).emit("new_message", msg);
+        done();
+    });
+    
     // socket.on("enter_room", (msg, done) => {
     //     console.log(msg);
     //     setTimeout(() => {
