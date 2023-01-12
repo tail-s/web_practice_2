@@ -9,13 +9,22 @@ html(lang="en")
     body 
         header
             h1 ZoomClone
-        main    
-            form#nick
-                ul
-                input(type="text", placeholder="choose a nickname", requierd)
-                button Save
-            form#message
-                ul
-                input(type="text", placeholder="write a msg", requierd)
-                button Send
-        script(src="public/js/app.js")
+        main   
+            div#welcome
+                form
+                    input(placeholder="room name", required, type="text")
+                    button Enter Room
+
+
+
+
+            //- form#nick
+            //-     ul
+            //-     input(type="text", placeholder="choose a nickname", requierd)
+            //-     button Save
+            //- form#message
+            //-     ul
+            //-     input(type="text", placeholder="write a msg", requierd)
+            //-     button Send
+        script(src="/socket.io/socket.io.js")
+        script(src="/public/js/app.js")
