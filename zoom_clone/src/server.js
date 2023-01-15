@@ -17,6 +17,20 @@ const server = http.createServer(app);  //http Server
 // const wss = new WebSocket.Server({ server });
 const io = SocketIO(server);
 
+function publicRooms() {
+    const {
+        sockets: {
+            adapter: { sids, rooms },
+        },
+    } = io;
+    const publicRooms = [];
+    rooms.forEach((_, key) => {
+        if(sids.get(key) === undefined) {
+            publicRooms.push(key);
+        }
+    });
+}
+
 io.on("connection", (socket) => {
     socket["nickname"] = "Anon";
     socket.onAny((event) => {
