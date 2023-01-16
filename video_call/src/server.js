@@ -14,4 +14,4 @@ const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
-server.listen(3000, handleListen);
+httpServer.listen(3000, handleListen);
