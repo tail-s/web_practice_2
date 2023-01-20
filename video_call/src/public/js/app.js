@@ -60,5 +60,10 @@ function handleCameraClick() {
     }
 };
 
+function handleCameraChange() {
+    console.log(camerasSelect.value);
+};
+
 muteBtn.addEventListener("click", handleMuteClick);
 cameraBtn.addEventListener("click", handleCameraClick);
+camerasSelect.addEventListener("input", handleCameraChange);
