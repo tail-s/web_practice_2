@@ -128,7 +128,7 @@ socket.on("offer", async(offer) => {
 });
 
 socket.on("answer", answer => {
-    // 구현
+    myPeerConnection.setRemoteDescription(answer);
 });
 
 // RTC Code
