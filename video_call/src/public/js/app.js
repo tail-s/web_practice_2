@@ -135,6 +135,7 @@ socket.on("answer", answer => {
 
 function makeConnection() {
     myPeerConnection = new RTCPeerConnection();
+    myPeerConnection.addEventListener("icecandidate", handleIce);
     myStream
     .getTracks()
     .forEach(track => myPeerConnection.addTrack(track, myStream));
