@@ -140,3 +140,8 @@ function makeConnection() {
     .getTracks()
     .forEach(track => myPeerConnection.addTrack(track, myStream));
 };
+
+function handleIce(data) {
+    console.log("got ice candidate");
+    console.log(data);
+};
